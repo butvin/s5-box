@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+
+  database:
+    container_name: ${APP_NAME}-database
+    image: mariadb:10.6.4
+
+  app:
+    container_name: ${APP_NAME}-app
+    working_dir: /app
+    image: php:7.4-fpm
+
+  cli:
+    container_name: ${APP_NAME}-cli
+    working_dir: /app
+    image: php:7.4-cli
+
+  nginx:
+    container_name: ${APP_NAME}-nginx
+    image: nginx:1.21.3
+
+  rabbitmq:
+    container_name: ${APP_NAME}-rabbitmq
+    image: rabbitmq:3.9.5-management
+
+  redis:
+    container_name: ${APP_NAME}-redis
+    image: redis:6.2.5-alpine
+
